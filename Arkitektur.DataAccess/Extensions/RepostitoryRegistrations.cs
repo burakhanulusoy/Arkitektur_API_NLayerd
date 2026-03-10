@@ -1,0 +1,38 @@
+using Arkitektur.DataAccess.Context;
+using Arkitektur.DataAccess.Ýnterceptors;
+using Arkitektur.DataAccess.UOW;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.DependencyInjection;
+
+namespace Arkitektur.DataAccess.Extensions
+{
+    public static class RepostitoryRegistrations
+    {
+
+
+        public static IServiceCollection AddRepositoriesExt(this IServiceCollection services,IConfiguration configuration)
+        {
+            services.AddDbContext<AppDbContext>(options =>
+            {
+
+                options.UseSqlServer(configuration.GetConnectionString("SqlConnection"));
+
+                options.AddInterceptors(new AuditDbContextInterceptors());
+
+            });
+
+            services.AddScoped<IUnitOfWork, UnitOfWork>();
+
+            return services;
+
+
+        }
+
+
+
+
+
+
+    }
+}
