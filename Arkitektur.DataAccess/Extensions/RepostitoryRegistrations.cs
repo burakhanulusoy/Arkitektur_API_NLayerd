@@ -1,5 +1,6 @@
 using Arkitektur.DataAccess.Context;
 using Arkitektur.DataAccess.Ýnterceptors;
+using Arkitektur.DataAccess.Repositories.GenericRepositories;
 using Arkitektur.DataAccess.UOW;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
@@ -23,6 +24,8 @@ namespace Arkitektur.DataAccess.Extensions
             });
 
             services.AddScoped<IUnitOfWork, UnitOfWork>();
+
+            services.AddScoped(typeof(IGenericRepository<>), typeof(GenericRepository<>));
 
             return services;
 
