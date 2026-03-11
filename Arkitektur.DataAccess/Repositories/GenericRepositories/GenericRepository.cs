@@ -13,7 +13,7 @@ namespace Arkitektur.DataAccess.Repositories.GenericRepositories
     {
 
         private readonly AppDbContext _context;
-        private readonly DbSet<TEntity> _table;
+        protected readonly DbSet<TEntity> _table;
 
         public GenericRepository(AppDbContext context)
         {

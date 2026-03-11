@@ -1,6 +1,5 @@
 using Arkitektur.Business.Base;
 using Arkitektur.Business.DTOs.CategoryDtos;
-using Arkitektur.Entity.Entities;
 
 namespace Arkitektur.Business.DTOs.ProjectDtos
 {
@@ -14,10 +13,6 @@ namespace Arkitektur.Business.DTOs.ProjectDtos
         public string Item1 { get; set; }
         public string Item2 { get; set; }
         public string Item3 { get; set; }
-
-
-
-
         public int CategoryId { get; set; }
         public ResultCategoryDto Category { get; set; }
 

@@ -7,7 +7,6 @@ namespace Arkitektur.Business.DTOs.CategoryDtos
     {
 
         public string CategoryName { get; set; }
-        public IList<ResultProjectDto> Projects { get; set; }
 
 
     }
