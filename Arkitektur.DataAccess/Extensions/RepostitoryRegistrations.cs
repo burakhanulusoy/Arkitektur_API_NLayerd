@@ -25,8 +25,12 @@ namespace Arkitektur.DataAccess.Extensions
 
             services.AddScoped<IUnitOfWork, UnitOfWork>();
 
+
+            //hata aldým bunu koyunca geçti araþtýr anlamadým tam
             services.AddScoped(typeof(IGenericRepository<>), typeof(GenericRepository<>));
 
+
+            //auto registration
             services.Scan(options => options.FromAssemblyOf<DataAccessAssembly>()
                                           .AddClasses(x => x.Where(t => t.Name.EndsWith("Repository")))
                                           .AsImplementedInterfaces()

@@ -1,0 +1,11 @@
+using Arkitektur.Business.Base;
+
+namespace Arkitektur.Business.DTOs.CategoryDtos
+{
+    public class CreateCategoryDto
+    {
+        public string CategoryName { get; set; }
+
+
+    }
+}

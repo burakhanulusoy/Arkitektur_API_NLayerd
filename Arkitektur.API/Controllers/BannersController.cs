@@ -1,7 +1,6 @@
 ﻿using Arkitektur.Business.DTOs.BannerDtos;
 using Arkitektur.Business.Services.BannerServices;
 using Microsoft.AspNetCore.Mvc;
-using System.Threading.Tasks;
 
 namespace Arkitektur.API.Controllers
 {
