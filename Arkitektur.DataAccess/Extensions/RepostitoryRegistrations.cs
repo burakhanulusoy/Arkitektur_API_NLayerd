@@ -27,6 +27,15 @@ namespace Arkitektur.DataAccess.Extensions
 
             services.AddScoped(typeof(IGenericRepository<>), typeof(GenericRepository<>));
 
+            services.Scan(options => options.FromAssemblyOf<DataAccessAssembly>()
+                                          .AddClasses(x => x.Where(t => t.Name.EndsWith("Repository")))
+                                          .AsImplementedInterfaces()
+                                          .WithScopedLifetime()
+             );
+                                    
+
+
+
             return services;
 
 
