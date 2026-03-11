@@ -9,7 +9,7 @@ var builder = WebApplication.CreateBuilder(args);
 
 
 builder.Services.AddRepositoriesExt(builder.Configuration)
-                .AddServiceExt();
+                .AddServiceExt(builder.Configuration);
              
 
 
