@@ -1,4 +1,5 @@
 using FluentValidation.Results;
+using Microsoft.AspNetCore.Identity;
 using System.Text.Json.Serialization;
 
 namespace Arkitektur.Business.Base
@@ -51,5 +52,31 @@ namespace Arkitektur.Business.Base
 
 
         }
+
+
+        public static BaseResult<T> Fail(IEnumerable<IdentityError> errorMessages)
+        {
+
+            IEnumerable<object> errors = (from error in errorMessages
+                                          select new
+                                          {
+                                              ProportyName = error.Code,
+                                              ErrorMessage = error.Description
+
+                                          }).ToList();
+
+
+            return new BaseResult<T>
+            {
+
+                Errors = errors
+            };
+
+
+        }
+
+
+
+
     }
 }

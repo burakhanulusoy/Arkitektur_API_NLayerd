@@ -2,6 +2,7 @@ using Arkitektur.DataAccess.Context;
 using Arkitektur.DataAccess.Ýnterceptors;
 using Arkitektur.DataAccess.Repositories.GenericRepositories;
 using Arkitektur.DataAccess.UOW;
+using Arkitektur.Entity.Entities;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -22,6 +23,15 @@ namespace Arkitektur.DataAccess.Extensions
                 options.AddInterceptors(new AuditDbContextInterceptors());
 
             });
+
+
+            services.AddIdentity<AppUser, AppRole>(options =>
+            {
+                options.User.RequireUniqueEmail = true;
+                options.Password.RequiredLength = 8;
+
+            }).AddEntityFrameworkStores<AppDbContext>();
+
 
             services.AddScoped<IUnitOfWork, UnitOfWork>();
 
